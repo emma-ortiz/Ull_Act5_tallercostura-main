@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="{% url 'inicio_tallercostura' %}">
+      <i class="bi bi-scissors"></i> Taller de Costura
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTaller" aria-controls="navbarTaller" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTaller">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <!-- 🔹 Inicio -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'inicio_tallercostura' %}">
+            <i class="bi bi-house-door"></i> Inicio
+          </a>
+        </li>
+
+        <!-- 🔹 Dropdown Alumnos -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="menuAlumnos" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-people"></i> Alumnos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="menuAlumnos">
+            <li><a class="dropdown-item" href="{% url 'agregar_alumno' %}">Agregar alumno</a></li>
+            <li><a class="dropdown-item" href="{% url 'ver_alumno' %}">Ver alumnos</a></li>
+          </ul>
+        </li>
+
+        <!-- 🔹 Dropdown Clases -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="menuClases" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-journal-text"></i> Clases
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="menuClases">
+            <li><a class="dropdown-item" href="{% url 'ver_clase' %}">Ver clases</a></li>
+            <li><a class="dropdown-item" href="{% url 'agregar_clase' %}">Agregar clase</a></li>
+          </ul>
+        </li>
+
+        <!-- 🔹 Dropdown Inscripciones -->
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="menuProfesores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-plus"></i> Profesores
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="menuProfesores">
+            <li><a class="dropdown-item" href="{% url 'ver_profesor' %}"> Ver Profesores</a></li>
+            <li><a class="dropdown-item" href="{% url 'agregar_profesor' %}"> Agregar Profesores</a></li>
+          </ul>
+        </li>
+
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="menuMateriales" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-box-seam"></i> Materiales
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="menuMateriales">
+            <li><a class="dropdown-item" href="{% url 'ver_material' %}"> Ver Materiales</a></li>
+            <li><a class="dropdown-item" href="{% url 'agregar_material' %}"> Agregar Materiales</a></li>
+          </ul>
+        </li>
+
+       
+
+
+
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center mb-4">Lista de Clases</h2>
+
+<table class="table table-hover table-bordered align-middle bg-white shadow">
+  <thead class="table-primary text-center">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Nivel</th>
+      <th>Profesor</th>
+      <th>Fecha Inicio</th>
+      <th>Fecha Fin</th>
+      <th>Duración</th>
+      <th>Cupo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in clases %}
+    <tr>
+      <td>{{ c.id }}</td>
+      <td>{{ c.nombre }}</td>
+      <td>{{ c.nivel }}</td>
+      <td>{% if c.profesor %}{{ c.profesor.nombre }} {{ c.profesor.apellido }}{% else %}-{% endif %}</td>
+      <td>{{ c.fecha_inicio }}</td>
+      <td>{{ c.fecha_fin }}</td>
+      <td>{{ c.duracion_horas }} h</td>
+      <td>{{ c.cupo_maximo }}</td>
+      <td class="text-center">
+        <a href="{% url 'actualizar_clase' c.id %}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
+        <a href="{% url 'borrar_clase' c.id %}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="9" class="text-center">No hay clases registradas.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="text-center mt-3">
+  <a href="{% url 'agregar_clase' %}" class="btn btn-success px-4">Agregar nueva clase</a>
+</div>
+{% endblock %}

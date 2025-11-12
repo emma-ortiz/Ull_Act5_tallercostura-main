@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-header bg-warning text-white text-center">
+      <h3>Actualizar Clase</h3>
+    </div>
+    <div class="card-body">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Nombre:</label>
+          <input type="text" name="nombre" class="form-control" value="{{ clase.nombre }}" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Descripción:</label>
+          <textarea name="descripcion" class="form-control" rows="3">{{ clase.descripcion }}</textarea>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nivel:</label>
+          <select name="nivel" class="form-select">
+            <option {% if clase.nivel == 'Básico' %}selected{% endif %}>Básico</option>
+            <option {% if clase.nivel == 'Intermedio' %}selected{% endif %}>Intermedio</option>
+            <option {% if clase.nivel == 'Avanzado' %}selected{% endif %}>Avanzado</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Fecha de inicio:</label>
+            <input type="date" name="fecha_inicio" value="{{ clase.fecha_inicio|date:'Y-m-d' }}" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Fecha de fin:</label>
+            <input type="date" name="fecha_fin" value="{{ clase.fecha_fin|date:'Y-m-d' }}" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Duración (horas):</label>
+            <input type="number" name="duracion_horas" value="{{ clase.duracion_horas }}" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Cupo máximo:</label>
+            <input type="number" name="cupo_maximo" value="{{ clase.cupo_maximo }}" class="form-control">
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-warning px-4">Actualizar</button>
+          <a href="{% url 'ver_clase' %}" class="btn btn-secondary px-4">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

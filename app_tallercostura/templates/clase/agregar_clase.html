@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center mb-4">Agregar Clase</h2>
+
+<form method="POST" class="shadow p-4 rounded bg-white">
+  {% csrf_token %}
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label class="form-label">Nombre:</label>
+      <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Nivel:</label>
+      <select name="nivel" class="form-select">
+        <option value="Básico">Básico</option>
+        <option value="Intermedio">Intermedio</option>
+        <option value="Avanzado">Avanzado</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Descripción:</label>
+    <textarea name="descripcion" class="form-control" rows="3"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Profesor:</label>
+    <select name="profesor" class="form-select">
+      <option value="">-- Ninguno --</option>
+      {% for p in profesores %}
+        <option value="{{ p.pk }}">{{ p.apellido }} {{ p.nombre }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label class="form-label">Fecha de inicio:</label>
+      <input type="date" name="fecha_inicio" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Fecha de fin:</label>
+      <input type="date" name="fecha_fin" class="form-control">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label class="form-label">Duración (horas):</label>
+      <input type="number" name="duracion_horas" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Cupo máximo:</label>
+      <input type="number" name="cupo_maximo" class="form-control">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success w-100">Guardar Clase</button>
+</form>
+{% endblock %}

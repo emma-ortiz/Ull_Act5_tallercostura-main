@@ -53,6 +53,18 @@
           </ul>
         </li>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="menuInscripciones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-journal"></i> Inscripciones
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="menuInscripciones">
+            <li><a class="dropdown-item" href="{% url 'ver_inscripcion' %}"> Ver Inscripciones</a></li>
+            <li><a class="dropdown-item" href="{% url 'agregar_inscripcion' %}"> Agregar Inscripciones</a></li>
+          </ul>
+        </li>
+
+
+
          <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="menuMateriales" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-box-seam"></i> Materiales
